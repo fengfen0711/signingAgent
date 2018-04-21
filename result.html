@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>申请结果反馈</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body style=" -webkit-tap-highlight-color: transparent; -webkit-focus-ring-color: transparent;" unselectable="on" onselectstart="return false;">
+	<p class="successImgBox"><img src="img/successImg.png"/></p>
+	<h1 class="success_title">提交申请成功</h1>
+	<p class="successBox">
+		您已经成功申请签约代理人，我们已经为您生成了趣投保的账号和密码，方便您查询申请进度。账号：<span class="loginName"></span>；密码：<span class="loginPwd"></span>，安卓请前往（ <a href="https://www.pgyer.com/J8cW" class="loginUrl">https://www.pgyer.com/J8cW</a> ）下载APP，IOS请前往（ <a href="https://www.pgyer.com/yNLM" class="loginUrl">https://www.pgyer.com/yNLM</a> ）下载APP，为保证您的账号安全，登录后立即修改密码。
+	</p>
+	<script type="text/javascript">
+		$(function () {
+			$(".loginName").html(localStorage.getItem("loginName"));
+			$(".loginPwd").html(localStorage.getItem("loginPwd"));
+		})
+	</script>
+</body>
+</html>

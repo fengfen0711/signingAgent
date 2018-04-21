@@ -1,0 +1,24 @@
+{
+	"index.html": {
+		"refer": [
+			"agreement.html"
+		]
+	},
+	"agreement.html": {
+		"refer": [
+			"telCode.html"
+		]
+	},
+	"telCode.html": {
+		"refer": [
+			"userInfo.html",
+			"agreement.html"
+		]
+	},
+	"userInfo.html": {
+		"refer": [
+			"telCode.html",
+			"resultRe.html"
+		]
+	}
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>代理人协议</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body style=" -webkit-tap-highlight-color: transparent; -webkit-focus-ring-color: transparent;" unselectable="on" onselectstart="return false;">
+	<h1 class="index_title">重要提示</h1>
+	<ul class="contentBox">
+		<li>1.代理合同电子签约，仅为代替纸质合同签约并保存代理人基本信息作用。签属合同的前提为代理人能够通过机构面试，确定签约意向，提交纸质签约申请表与双签声明以及其他机构要求的材料。未经公司同意或缴纳签约申请、双签的，后台审核不予通过。</li>
+		<li>2.整个签约的过程需要5-10分钟，<strong>且无法中途保存</strong>，退出再进入签约界面将会充值填写内容，所以请保证填写过程安静不被打扰，以免信息填写错误，填写时可能会出现页面加载不出来的情况，稍等片刻即好。</li>
+		<li>3.签约前请准备好本人的身份证、发佣银行卡（建议招商银行储蓄卡），推荐人与担保人可为同一人，担保人的身份证或照片、地址、电话等信息需要上传填写。</li>
+		<li>4.信息填写，同意勾选销售委托合同（签字）后将无法修改。</li>
+		<li>5.如在填写过程中遇到其他问题，请及时联系所属分公司人管、营销部经理或总公司营销管理部门。</li>
+	</ul>
+	<p class="confirmBox">
+		<a href="agreement.html" class="confirmBtn">确认</a>
+	</p>
+	<script type="text/javascript">
+		//获取url中的参数
+        (function ($) {
+		    $.getUrlParam = function (name) {
+		        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		        var r = window.location.search.substr(1).match(reg);
+		        if (r != null) return unescape(r[2]); return null;
+		    }
+		})(jQuery);
+        var test = window.location.href;
+        var request_code = $.getUrlParam('brokerCode');
+        window.localStorage.setItem("request_code",request_code);
+        window.localStorage.setItem("brokerBlur","1");
+	</script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+@charset "utf-8";
+/* CSS Document */
+.rangeBox { width: 100%; height: 0.08rem; background: #C0C0C0;}
+.range { width: 20%; height: 0.08rem; background: #1AAD19;}
+.infoBox { display: none; width: 100%; height: 100%; background: #EFEFF4; font-size: 0.28rem; overflow: hidden;}
+.disblock { display: block;}
+.infoBox1 { overflow: hidden;}
+.info h3 { padding-left: 0.2rem; height: 0.88rem; line-height: 0.88rem; font-size: 0.28rem; font-weight: 100; color: #888888; background: #EFEFF4;}
+.green { color: #1AAD19; margin-right: 0.03rem;}
+.info h2 { padding-left: 0.2rem; height: 0.88rem; line-height: 0.88rem; font-size: 0.28rem; font-weight: 100; color: #888888;}
+
+.info p { margin: 0; line-height: 0.88rem; font-size: 0.34rem; color: #000000; border-bottom: solid 0.02rem #E5E5E5;}
+.info p:last-child { border: none;}
+.info p input { padding: 0; height: 0.88rem; color: #222222; font-size: 0.34rem;}
+.info p input.uNInput1 { width: 5rem;}
+.info p input.uNInput2 { width: 2.8rem;}
+
+.cameraBox { position: relative; margin: 0 0 0.4rem 0; height: 3.5rem; text-align: center;}
+.upLoadImg { display: inline-block; width: 7rem; margin: 0 auto; height: 3.5rem;}
+#IDcardForm { position: absolute; top: 0; left: 0; opacity: 0; z-index: 1;}
+#file_IDcard { width: 7rem; height: 3.5rem;}
+#submits_IDcard { padding: 0; margin: 0; border: none; background: none; width: 0.0001rem; height: 0.0001rem; z-index: -9999;}
+
+.infoCon { padding: 0 0.3rem; background: #FFFFFF;}
+.info p label.firstUN { display: inline-block; width: 1.9rem; height: 0.88rem; line-height: 0.88rem; padding: 0;}
+.sexImg { width: 0.46rem; height: 0.46rem; margin-right: 0.16rem; margin-left: 0.32rem; vertical-align: middle;}
+.sexClick {}
+.openCloseBox { position: relative; background: #FFFFFF; padding: 0 0.3rem;}
+.mui-input-row .mui-switch { float: none;  margin-top:-15px; margin-right: 0;}
+.openCloseBtn { position:absolute; top:50%; right:0.2rem;}
+
+.addressInfo { word-break: break-all; word-break: break-word; line-height: 0.66rem; color: #666666;}
+.adrNowBox { display: none;}
+.info p.borderNo { border: none;}
+.info p select.education { margin: 0.14rem 0; padding: 0; padding-left: 0.3rem; background: none; display: inline-block; width: 3.04rem; height: 0.6rem; border: solid 0.01rem #E5E5E5!important; border-radius: 0.08rem; font-size: 0.34rem; text-align: center!important;}
+.mui-switch.mui-active { border-color: #1AAD19; background-color: #1AAD19;}
+.userNextBox { text-align: center; margin-bottom: 0.42rem;}
+.userNextBtn { display: inline-block; width: 6.4rem; height: 0.88rem; margin-top: 0.84rem; font-size: 0.36rem; color: #FFFFFF; background: #1AAD19; border-radius: 0.08rem;}
+.mui-input-row label~input, .mui-input-row label~select, .mui-input-row label~textarea {
+    float: left;
+    width: 4rem;
+}
+#bankCardWarn { padding: 0 0.32rem; font-size: 0.28rem; color: #888888;}
+
+.mui-input-row .mui-input-clear~.mui-icon-clear, .mui-input-row .mui-input-password~.mui-icon-eye, .mui-input-row .mui-input-speech~.mui-icon-speech {
+    font-size: 0.44rem;
+    position: absolute;
+    z-index: 1;
+    top: 0.22rem;
+    right: 0.18rem;
+    width: 0.44rem;
+    height: 0.44rem;
+    text-align: center;
+    color: #999;
+}
+#houseAdr{
+	word-break: break-all;
+	word-wrap: break-word;
+}
+textarea.mui-input-clear{
+	float: left;
+	display: inline-block;
+    width: 4rem;
+    padding: 0.19rem;
+    line-height: 0.5rem;
+    font-size: 0.34rem;
+    color: #222222;
+}
+#delX,#delX1,#delX2 {
+	display: none;
+}
+.delX {
+	font-size: 0.44rem;
+    position: absolute;
+    z-index: 1;
+    top: 0.22rem;
+    right: 0.18rem;
+    width: 0.44rem;
+    height: 0.44rem;
+    text-align: center;
+    color: #999;
+}
+.delX_icon {
+    font-family: Muiicons; 
+    font-weight: 400; 
+    font-style: normal; 
+    line-height: 1; 
+    display: inline-block;
+    text-decoration: none; 
+    -webkit-font-smoothing: antialiased; 
+    
+}
+.delX_icon:before {
+  	content: '\e434';
+}
+
+/* educationInfo */
+.infoConPush { position: relative; padding-top: 0.29rem; height: 1.78rem;}
+.eduCamera { display: inline-block; width: 1.16rem; height: 1.16rem;}
+#eduForm { position: absolute; top: 0.29rem; left: 0.3rem; opacity: 0; z-index: 1;}
+#file_edu { width: 1.16rem; height: 1.16rem;}
+#submits_edu { padding: 0; margin: 0; border: none; background: none; width: 0.0001rem; height: 0.0001rem; z-index: -9999;}
+.nextBox { text-align: center; margin-bottom: 0.42rem;}
+.nextBtn,.upBtn { display: inline-block; width: 3rem; height: 0.88rem; margin-top: 0.84rem; font-size: 0.36rem; color: #FFFFFF; background: #1AAD19; border-radius: 0.08rem;}
+.upBtn { margin-right: 0.4rem;}
+
+.codeBtn { width: 2.2rem; font-size: 0.32rem; color: #1AAD19;}
+
+
+/* guaranteeInfo */
+.guaranteeInfo_pushBox { margin-top: 0.24rem; color: #1AAD19; text-align: center;}
+.delBtn { margin-right: 0.3rem; color: #F43530;}
+.mui-input-row .guaName~.mui-icon-clear,.mui-input-row .guaIDcard~.mui-icon-clear,.mui-input-row .guaTel~.mui-icon-clear {
+    display: none;
+}
+.info p input.red {
+	color: #CF2D28;
+}
+.guaInfoBox { position: relative; width: 100%; height: 3.58rem;}
+.guaInfoNo { position: absolute; top: 0; left: 0; width: 100%;}
+.guaInfoYes { position: absolute; top: 0.625rem; left: 8.75rem; width: 5rem; margin: 0 auto; padding: 0 0.3rem; padding-top: 0.2rem; padding-bottom: 0.5rem; background: #FFFFFF; border-radius: 0.1rem;}
+.guaInfoYes h3 { height: 0.88rem; line-height: 0.88rem; font-size: 0.28rem; color: #222222; font-weight: 600; background: none; text-align: center;}
+.guaInfoYesP { height: 0.88rem; line-height: 0.88rem; text-align: center; background: #1AAD19; border-radius: 0.05rem;}
+.guaInfoYesP span { color: #FFFFFF;}
+.guaInfoYesP .guaInfoYesPName { margin-right: 0.5rem;}
+.line1 { -webkit-animation: line1 0.8s 1 ease-in-out; animation: line1 0.8s 1 ease-in-out; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards;}
+@-webkit-keyframes line1 {
+	0% { opacity: 1; left: 0;}
+	100% { opacity: 0; left: -100%;}
+}
+
+@keyframes line1 {
+	0% { opacity: 1; left: 0;}
+	100% { opacity: 0; left: -100%;}
+}
+.line2 { -webkit-animation: line2 0.8s 1 ease-in-out; animation: line2 0.8s 1 ease-in-out; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards;}
+@-webkit-keyframes line2 {
+	0% { opacity: 0; left: 8.75rem;}
+	100% { opacity: 1; left: 1.25rem;}
+}
+
+@keyframes line2 {
+	0% { opacity: 0; left: 8.75rem;}
+	100% { opacity: 1; left: 1.25rem;}
+}
+.line12 { -webkit-animation: line12 0.8s 1 ease-in-out; animation: line12 0.8s 1 ease-in-out; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards;}
+@-webkit-keyframes line12 {
+	0% { opacity: 0; left: -100%;}
+	100% { opacity: 1; left: 0;}
+}
+
+@keyframes line12 {
+	0% { opacity: 0; left: -100%;}
+	100% { opacity: 1; left: 0;}
+}
+.line22 { -webkit-animation: line22 0.8s 1 ease-in-out; animation: line22 0.8s 1 ease-in-out; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards;}
+@-webkit-keyframes line22 {
+	0% { opacity: 1; left: 1.25rem;}
+	100% { opacity: 0; left: 8.75rem;}
+}
+
+@keyframes line22 {
+	0% { opacity: 1; left: 1.25rem;}
+	100% { opacity: 0; left: 8.75rem;}
+}
+
+/* bandCardInfo */
+.remindImg , .cameraImg { width: 0.32rem; height: 0.32rem; margin-top: 0.28rem;}
+.cameraImg { width: 0.36rem;}
+.bankCardBox { position: relative;}
+#bankCardForm { position: absolute; bottom: 0.28rem; right: 0.3rem; opacity: 0; z-index: 1;}
+#file_bankCard { width: 0.36rem; height: 0.32rem;}
+#submits_bankCard { padding: 0; margin: 0; border: none; background: none; width: 0.0001rem; height: 0.0001rem; z-index: -9999;}
+
+/* rankInfo */
+.info p label.firstRR { display: inline-block; width: 2.8rem; padding-left: 0;}
+.info p .RR { width: 4.1rem; color: #222222;}
+.mui-input-row label { line-height: 0.88rem; padding: 0;}
+.rankRemind { padding: 0 0.52rem; margin-top: 0.32rem; color: #888888;}
+.rankRemind p { margin-bottom: 0.08rem; line-height: 0.4rem;}
+.rank_remindImg { margin-left: 0.32rem;}
+.bankList { height: 0.88rem; line-height: 0.88rem;}
+.rankUpBtn { margin-left: 0.55rem;}
+#rankList { color: #222222;}
+
+/************************shade*************************/
+.Shade { display: none; width: 100%; height: 100%; position: fixed; z-index: 100; top: 0;}
+
+/*************************agreeMz******************************/
+.agreeMz { display: none; position: fixed; z-index: 100; top: 0; left: 0; right: 0; bottom: 0; width: 1rem; height: 1rem; margin: auto; background: rgba(0,0,0,0.7); border-radius: 0.1rem;}
+.agreeM { position: absolute; top: 1rem; left: 0; z-index: 101;}
+.loadingImg { display: block; width: 0.8rem; height: 0.8rem; margin: 0 auto; margin-top: 0.1rem;}
+.loadingImg { -webkit-animation: roundz 0.8s infinite ease-in-out; animation: roundz 0.8s infinite ease-in-out; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards;}
+@-webkit-keyframes roundz {
+	0% { -webkit-transform: rotate(0deg); }
+	80% { -webkit-transform: rotate(-360deg); }
+	100% { -webkit-transform: rotate(-360deg); }
+}
+
+@keyframes roundz {
+	0% { -webkit-transform: rotate(0deg); }
+	80% { -webkit-transform: rotate(-360deg); }
+	100% { -webkit-transform: rotate(-360deg); }
+}
+
+

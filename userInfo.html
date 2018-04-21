@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>信息确认</title>
+    <link href="css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/userInfo.css" />
+    <script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/form.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/userInfo.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body style=" -webkit-tap-highlight-color: transparent; -webkit-focus-ring-color: transparent;" unselectable="on" onselectstart="return false;">
+	<div class="infoBoxZ">
+		<div class="rangeBox">
+			<p class="range"></p>
+		</div>
+		<div class="userInfo infoBox disblock" data-a="1">
+			<div class="info">
+				<h2>请确认您的身份证信息</h2>
+				<div class="cameraBox">
+					<img class="upLoadImg" src="img/upLoad.png" />
+					<form action="http://lb.qtoubao.cn:9000/insd/upload_fms_pic.tml?uploadType=2001" id="IDcardForm" method="post" style="text-align:center;" enctype="multipart/form-data">  
+			    		<input type="file" id="file_IDcard" name="file" accept="image/*">
+				       	<input id="submits_IDcard" type="submit" />
+				 	</form>
+				</div>
+				<div class="infoCon">
+					<p class="mui-input-row">
+				        <label class="firstUN"><span class="green">*</span>姓名</label>
+				        <input type="text" class="mui-input-clear" id="userName" placeholder="姓名">
+				    </p>
+				    <p class="mui-input-row">
+				        <label class="firstUN"><span class="green">*</span>证件号码</label>
+				        <input type="text" class="mui-input-clear" id="userId" maxlength="18" placeholder="身份证号">
+				    </p>
+				    <p class="mui-input-row">
+				        <label class="firstUN"><span class="green">*</span>性别</label>
+				        <span class="r" id="sexBox"><span class="sexChild sexChildM" data-userId="M"><img class="sexImg" src="img/sex_notSelect.png"/>男</span><span class="mr2 sexChildF sexChild sexClick" data-userId="F"><img class="sexImg" id="F" src="img/sex_select.png"/>女</span></span>
+				    </p>
+				    <p class="mui-input-row">
+				        <label class="firstUN"><span class="green">*</span>户籍地址</label>
+				        <textarea class="mui-input-clear" id="houseAdr" rows="1" placeholder="户籍地址"></textarea>
+				        <span class="delX_icon delX" id="delX"></span>
+				    </p>
+				    <p class="mui-input-row openCloseBox borderNo">
+						<span>户籍地址与现居地址不一致</span>
+						<span class="mui-switch mui-switch-mini openCloseBtn" id="openCloseBtn">
+						  	<span class="mui-switch-handle"></span>
+						</span>
+					</p>
+				    <p class="mui-input-row adrNowBox">
+				        <label class="firstUN" id="adrNowName"><span class="green">*</span>现居地址</label>
+				        <textarea class="mui-input-clear" id="adrNow" rows="1" placeholder="现居地址"></textarea>
+				        <span class="delX_icon delX" id="delX1"></span>
+				    </p>
+				</div>
+			</div>
+			<p class="userNextBox">
+				<button class="userNextBtn">下一步</button>
+			</p>
+		</div>
+		<div class="infoBox" id="eduInfo" data-a="2">
+			<div class="info">
+				<h3>请补充您的学历及其他信息</h3>
+				<div class="infoCon">
+					<p>
+						<lable class="firstUN"><span class="green">*</span>政治面貌</lable>
+						<select class="r education" id="polList">
+							<option data-polNum = "">请选择</option>
+							<option data-polNum="A">群众</option>
+							<option data-polNum="B">共青团员</option>
+							<option data-polNum="C">中共党员</option>
+							<option data-polNum="D">中共预备党员</option>
+							<option data-polNum="E">民盟盟员</option>
+							<option data-polNum="F">民建会员</option>
+							<option data-polNum="G">民革会员</option>
+							<option data-polNum="H">无党派人士</option>
+							<option data-polNum="I">农工党党员</option>
+							<option data-polNum="J">致公党党员</option>
+							<option data-polNum="K">九三学社社员</option>
+							<option data-polNum="L">民进会员</option>
+							<option data-polNum="M">台盟盟员</option>
+						</select>
+					</p>
+					<p>
+						<lable class="firstUN"><span class="green">*</span>学历</lable>
+						<select class="r education" id="eduInfoList">
+							<option data-val="">请选择</option>
+						</select>
+					</p>
+				</div>
+			</div>
+			<div class="info">
+				<h3><span class="green">*</span>上传学历影像文件</h3>
+				<div class="infoCon infoConPush">
+					<img class="eduCamera" src="img/eduCamera.png" />
+					<form action="http://lb.qtoubao.cn:9000/insd/upload_fms_pic.tml?uploadType=2001" id="eduForm" method="post" style="text-align:center;" enctype="multipart/form-data">  
+			    		<input type="file" accept="image/*"  name="file" id="file_edu">
+				       	<input id="submits_edu" type="submit" />
+				 	</form>
+				</div>
+			</div>
+			<p class="nextBox">
+				<button class="upBtn eduUpBtn">上一步</button>
+				<button class="nextBtn eduNextBtn">下一步</button>
+			</p>
+		</div>
+		<div class="infoBox" id="guaranteeInfo" data-a="3">
+			<div class="info">
+				<h3>担保人信息</h3>
+				<p class="mui-input-row openCloseBox">
+					<span>推荐人与担保人是否一致</span>
+					<span class="mui-switch mui-switch-mini openCloseBtn" id="guaOpenCloseBtn">
+					  	<span class="mui-switch-handle"></span>
+					</span>
+				</p>
+				<div class="guaInfoBox">
+					<div class="infoCon guaInfo guaInfoNo">
+						<p class="mui-input-row">
+					        <label class="firstUN"><span class="green">*</span>姓名</label>
+					        <input type="text" class="mui-input-clear" id="guaName" placeholder="姓名">
+					    </p>
+					    <p class="mui-input-row">
+					        <label class="firstUN"><span class="green">*</span>身份证号</label>
+					        <input type="text" class="mui-input-clear" maxlength="18" id="guaIDcard" placeholder="身份证号">
+					    </p>
+					    <p class="mui-input-row">
+					        <label class="firstUN"><span class="green">*</span>性别</label>
+					        <span class="r"><span class="sexChildGua sexChildGuaM" data-guaSexId="M"><img class="sexImg" src="img/sex_notSelect.png"/>男</span><span class="mr2 sexChildGua sexChildGuaF sexClickGua" data-guaSexId="F"><img class="sexImg" src="img/sex_select.png"/>女</span></span>
+					    </p>
+					    <p class="mui-input-row">
+					        <label class="firstUN"><span class="green">*</span>手机号码</label>
+					        <input type="tel" class="mui-input-clear" maxlength="11" id="guaTel" placeholder="手机号码">
+					    </p>
+					</div>
+					<div class="guaInfo guaInfoYes">
+						<h3>推荐人信息</h3>
+						<p class="guaInfoYesP">
+					        <span class="guaInfoYesPName">姓名</span>
+					        <span id="guaName1">fengfen</span>
+					    </p>
+					</div>
+				</div>
+			</div>
+			<div class="info">
+				<h3>紧急联系人</h3>
+				<div class="infoCon">
+					<p class="mui-input-row">
+				        <label class="firstUN">姓名</label>
+				        <input type="text" class="mui-input-clear" id="mustName" placeholder="姓名">
+				    </p>
+					<p class="mui-input-row">
+				        <label class="firstUN">电话号码</label>
+				        <input type="tel" class="mui-input-clear" maxlength="11" id="mustTel" placeholder="电话号码">
+				    </p>
+				</div>
+			</div>
+			<p class="nextBox guaNextBox">
+				<button class="upBtn guaUpBtn">上一步</button>
+				<button class="nextBtn guaNextBtn">下一步</button>
+			</p>
+		</div>
+		<div class="infoBox infoBox1" id="bandCardInfo" data-a="4">
+			<div class="info">
+				<h3>请绑定持卡人本人的银行卡</h3>
+				<div class="infoCon bankCardBox">
+					<p class="mui-input-row clearFloat">
+				        <label class="firstUN">开户行</label>
+				        <span data-banknum="7">招商银行</span>
+				    </p>
+				    <p class="mui-input-row clearFloat">
+				        <label class="firstUN">卡号</label>
+				        <input type="number" class="mui-input-clear" oninput="if(value.length>19)value=value.slice(0,19)" id="bankNum" placeholder="卡号">
+				    </p>
+				</div>
+				<p id="bankCardWarn">注：只支持招商银行卡</p>
+			</div>
+			<p class="nextBox bankCardNextBox">
+				<button class="upBtn bankCardUpBtn">上一步</button>
+				<button class="nextBtn bankCardNextBtn">下一步</button>
+			</p>
+		</div>
+		<div class="infoBox" id="rankInfo" data-a="5">
+			<div class="info">
+				<h3>请选择职级</h3>
+				<div class="infoCon">
+					<p class="mui-input-row">
+				        <label class="firstRR">申请人姓名</label>
+				        <span class="RR" id="rankName"></span>
+				    </p>
+				    <p class="mui-input-row">
+				        <label class="firstRR">申请人所在大区</label>
+				        <span class="RR" id="rankArea"></span>
+				    </p>
+				    <p>
+						<lable class="firstRR">职级</lable>
+						<span class="r education RR" id="rankList">经纪人</span>
+					</p>
+				</div>
+			</div>
+			<p class="nextBox rankNextBox clearFloat">
+				<button class="upBtn l rankUpBtn">上一步</button>
+				<button class="nextBtn l rankNextBtn">提交申请</button>
+			</p>
+		</div>
+	</div>
+	<!--描述：遮罩 -->
+	<div class="Shade" id="Shade"></div>
+	
+	<!--描述：合同-->
+    <div class="agreeMz">
+        <div id="agreeM">
+        	<img class="loadingImg" src="img/loadingImg.png" />
+        </div>
+    </div>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init();
+		mui('.mui-switch')['switch']();
+	</script>
+</body>
+</html>
