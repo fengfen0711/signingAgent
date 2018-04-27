@@ -2,9 +2,9 @@
 //开发
 //var URL1 = "http://192.168.66.30:9000/insd/";
 //测试
-var URL1 = "http://58.132.205.171:9000/insd/";
+//var URL1 = "http://58.132.205.171:9000/insd/";
 //生产
-//var URL1 = "http://lb.qtoubao.cn:9000/insd/"
+var URL1 = "http://lb.qtoubao.cn:9000/insd/"
 var deviceWidth = document.documentElement.clientWidth;
 var deviceHeight = document.documentElement.clientHeight;
 

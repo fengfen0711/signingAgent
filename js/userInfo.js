@@ -525,6 +525,8 @@ function guaIDcardTest() {
 			var guaIDcar = JSON.stringify(guaIDcarInfo);
 			console.log(guaIDcar)
 			guaIDcardAjax(guaIDcar);
+		}else{
+			$(".sexChildGua").bind('click', sexChoseGua);
 		}
 	})
 }
@@ -634,8 +636,13 @@ function selectTorankInfo() {
 			console.log(bankNum)
 			findBankByBankNumAjax(bankNum)
 		} else {
-			mui.alert("请输入银行卡信息！")
-			$("#bankNum").focus();
+			window.localStorage.setItem("bankName",'7');
+			window.localStorage.setItem("bankNum",$("#bankNum").val());
+			$("#rankName").html(localStorage.getItem("userName"));
+			$("#rankArea").html(localStorage.getItem("agrRemark"));
+			$("#bandCardInfo").removeClass("disblock");
+			$("#rankInfo").addClass("disblock");
+			range();
 		}
 	})
 }

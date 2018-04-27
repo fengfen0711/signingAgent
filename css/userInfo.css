@@ -40,7 +40,7 @@
     float: left;
     width: 4rem;
 }
-#bankCardWarn { padding: 0 0.32rem; font-size: 0.28rem; color: #888888;}
+#bankCardWarn { margin-top: 0.4rem; padding: 0 0.32rem; line-height: 0.6rem; font-size: 0.28rem; color: #888888; border: none;}
 
 .mui-input-row .mui-input-clear~.mui-icon-clear, .mui-input-row .mui-input-password~.mui-icon-eye, .mui-input-row .mui-input-speech~.mui-icon-speech {
     font-size: 0.44rem;
