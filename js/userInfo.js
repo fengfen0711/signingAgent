@@ -4,6 +4,14 @@ $(function() {
 
 	//学历上传
 	eduSubmit();
+	
+	//民族数据
+	var nationInfo = {
+		"": ""
+	}
+	var nation = JSON.stringify(nationInfo);
+	console.log(nation)
+	findNationAjax(nation);
 
 	//户籍地址与现居地址是否一样
 	document.getElementById("openCloseBtn").addEventListener("toggle", function(event) {
@@ -173,28 +181,55 @@ function range() {
 	$(".range").css("width", ran + '%');
 }
 
+//民族数据
+function findNationAjax(data) {
+	$.ajax({
+		type: 'post',
+		url: URL1 + 'dic/findNation',
+		data: data,
+		dataType: 'json',
+		cache: false,
+		error: function(data) {
+			console.log(data);
+		},
+		success: function(data) {
+			console.log(data);
+			var dataCode = data.code;
+			if(dataCode == 'SYS_S_000') {
+				var nationLength = data.output.length;
+				for(var i = 0; i < nationLength; i++) {
+					var $option_na = $('<option data-nanum="' + data.output[i].pkNationId + '">' + data.output[i].nationName + '</option>');
+					$("#nationList").append($option_na);
+				}				
+			} else {
+				mui.alert(data.desc);
+			}
+		}
+	})
+}
+
 //身份证图像上传Ajax
 function brokerIDcardAjax(data) {
 	$.ajax({
 		type: 'post',
-		url: URL1 + 'upload_fms_batch_pic.tml?uploadType=2001',
+		url: URL2 + 'fastdfs/fileH5?uploadType=2001',
 		data: data,
 		cache: false,
 		processData: false,
 		contentType: false,
 		success: function(data) {
 			console.log(data)
-			var dataCode = data.status;
-			if(dataCode == '0000') {
-				window.localStorage.setItem("IDcardCode", data.data[0].fileSerialNo);
+			var dataCode = data.code;
+			if(dataCode == 'SYS_S_000') {
+				window.localStorage.setItem("IDcardCode", data.output.fileSerialNo);
 				var IDcardURLInfo = {
-					"ocrUrl": data.data[0].fileSerialNo
+					"ocrUrl": data.output.fileSerialNo
 				}
 				var IDcardURL = JSON.stringify(IDcardURLInfo);
 				console.log(IDcardURL)
 				OCRIDcardAjax(IDcardURL);
 			} else {
-				mui.alert(data.message);
+				mui.alert(data.desc);
 			}
 		},
 		error: function(data) {
@@ -231,9 +266,10 @@ function IDcardSubmit() {
 function OCRIDcardAjax(IDcarURL) {
 	$.ajax({
 		type: 'post',
-		url: URL1 + 'query_ident_card_jsons.tml',
+		url: URL1 + 'ocr/ocrIdCard',
 		data: IDcarURL,
 		dataType: 'json',
+		contentType: 'application/json',
 		cache: false,
 		error: function(data) {
 			console.log(data);
@@ -267,6 +303,13 @@ function OCRIDcardAjax(IDcarURL) {
 					$(".sexChildM").find("img").attr("src", "img/sex_select.png");
 					$(".sexChildM").siblings().find("img").attr("src", "img/sex_notSelect.png");
 				}
+				for (var i=0; i<$("#nationList option").length;i++) {
+					if ($("#nationList option").eq(i).val() == data.output.data.nation) {
+						$("#nationList option").eq(i).attr("selected","selected")
+						window.localStorage.setItem("nationType", $("#nationList option").eq(i).attr("data-nanum"));
+						return
+					}
+				}
 			} else {
 				mui.alert(data.desc);
 			}
@@ -276,6 +319,10 @@ function OCRIDcardAjax(IDcarURL) {
 
 //代理人信息跳转学历信息
 function selectToEduInfo() {
+	$("#nationList").on("change", function() {
+		var nationType = $(this).find("option:selected").attr("data-nanum");
+		window.localStorage.setItem("nationType", nationType);
+	})
 	$(".userNextBtn").click(function() {
 		var IDcarInfo = {
 			"brokerCertiCode": $("#userId").val()
@@ -283,7 +330,7 @@ function selectToEduInfo() {
 		var IDcar = JSON.stringify(IDcarInfo);
 		var isActive = document.getElementById("openCloseBtn").classList.contains("mui-active");
 		if(isActive) {
-			if($("#userName").val() && $("#userId").val() && $("#houseAdr").val()) {
+			if($("#userName").val() && $("#userId").val() && $("#nationList").val() != "请选择" && $("#houseAdr").val()) {
 				if($("#adrNow").val()) {
 					window.localStorage.setItem("userName", $("#userName").val());
 					window.localStorage.setItem("userId", $("#userId").val());
@@ -299,7 +346,7 @@ function selectToEduInfo() {
 				mui.alert("请点击拍照获取身份证信息或者手动输入身份证信息！");
 			}
 		} else {
-			if($("#userName").val() && $("#userId").val() && $("#houseAdr").val()) {
+			if($("#userName").val() && $("#userId").val() && $("#nationList").val() != "请选择" && $("#houseAdr").val()) {
 				window.localStorage.setItem("userName", $("#userName").val());
 				window.localStorage.setItem("userId", $("#userId").val());
 				window.localStorage.setItem("sexNum", $(".sexClick").attr("data-userId"));
@@ -362,9 +409,10 @@ function upToeduInfo() {
 function IDcardAjax(IDcar) {
 	$.ajax({
 		type: 'post',
-		url: URL1 + 'query_broker_sign_jsons.tml',
+		url: URL1 + 'core/broker/findBrokerByCertiCode',
 		data: IDcar,
 		dataType: 'json',
+		contentType: 'application/json',
 		cache: false,
 		error: function(data) {
 			console.log(data);
@@ -401,7 +449,7 @@ function IDcardAjax(IDcar) {
 function findEduAjax(data) {
 	$.ajax({
 		type: 'post',
-		url: URL1 + 'query_all_edu_jsons.tml',
+		url: URL1 + 'dic/findEdu',
 		data: data,
 		dataType: 'json',
 		cache: false,
@@ -428,18 +476,18 @@ function findEduAjax(data) {
 function eduSubmitAjax(data) {
 	$.ajax({
 		type: 'post',
-		url: URL1 + 'upload_fms_batch_pic.tml?uploadType=2001',
+		url: URL2 + 'fastdfs/fileH5?uploadType=2001',
 		data: data,
 		cache: false,
 		processData: false,
 		contentType: false,
 		success: function(data) {
 			console.log(data)
-			var dataCode = data.status;
-			if(dataCode == '0000') {
-				window.localStorage.setItem("eduCode", data.data[0].fileSerialNo);
+			var dataCode = data.code;
+			if(dataCode == 'SYS_S_000') {
+				window.localStorage.setItem("eduCode", data.output.fileSerialNo);
 			} else {
-				mui.alert(data.message);
+				mui.alert(data.desc);
 			}
 			$("#Shade").css("display", "none");
 			$(".agreeMz").css("display", "none");
@@ -480,7 +528,8 @@ function eduSubmit() {
 function guaIDcardAjax(IDcar) {
 	$.ajax({
 		type: 'post',
-		url: URL1 + 'verify_broker_card_jsons.tml',
+		url: URL1 + 'core/broker/checkIdCard',
+		contentType: 'application/json',
 		data: IDcar,
 		dataType: 'json',
 		cache: false,
@@ -594,7 +643,7 @@ function upToguaInfo() {
 function findBankByBankNumAjax(data) {
 	$.ajax({
 		type: 'post',
-		url: URL1 + 'query_all_bank_by_card_jsons.tml',
+		url: URL1 + 'dic/findBankByBankNum',
 		data: data,
 		dataType: 'json',
 		cache: false,
@@ -679,6 +728,7 @@ function submitInfo() {
 				"educationCode": localStorage.getItem("eduCode"),
 				"markserviceId": localStorage.getItem("agrfkMarkserviceId"),
 				"politicalStatus": localStorage.getItem("polNum"),
+				"nationType": localStorage.getItem("nationType"),
 				"rsdResidence": localStorage.getItem("houseAdr")
 			},
 			"brokerSurety": {
@@ -703,9 +753,10 @@ function submitInfo() {
 function submitAjax(data) {
 	$.ajax({
 		type: 'post',
-		url: URL1 + 'query_broker_register_jsons.tml',
+		url: URL1 + 'core/broker/weChatbrokerRegister',
 		data: data,
 		dataType: 'json',
+		contentType: 'application/json',
 		cache: false,
 		error: function(data) {
 			console.log(data);

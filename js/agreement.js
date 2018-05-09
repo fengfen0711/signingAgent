@@ -107,9 +107,10 @@ function selectAgreement () {
 function RefereeInfo (data) {
 	$.ajax({
 		type : 'post',
-		url : URL1 + 'query_broker_by_code_jsons.tml',
+		url : URL1 + 'core/broker/findByBrokerCode',
 		data : data,
 		dataType : 'json',
+		contentType: 'application/json',
 		cache : false,
 		success : function(data) {
 			console.log(data);

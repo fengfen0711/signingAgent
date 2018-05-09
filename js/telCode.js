@@ -43,9 +43,10 @@ function authCode () {
 function getCode (mobile) {
 	$.ajax({
 		type : 'post',
-		url : URL1 + 'send_code_sms_jsons.tml',
+		url : URL1 + 'sms/sendsmscode',
 		data : mobile,
 		dataType : 'json',
+		contentType: 'application/json',
 		cache : false,
 		error : function(data) {
 			console.log(data);
@@ -60,37 +61,15 @@ function getCode (mobile) {
 	})
 }
 
-//手机验证码是否正确
-function isAuthCode (telCode) {
-	$.ajax({
-		type : 'post',
-		url : URL1 + 'verify_code_sms_jsons.tml',
-		data : telCode,
-		dataType : 'json',
-		cache : false,
-		error : function(data) {
-			console.log(data);
-		},
-		success : function(data) {
-			console.log(data);
-			var dataCode = data.code;
-			if (dataCode == "SYS_S_000") {
-				window.localStorage.setItem("brokerMobile",$("#userTel").val());
-				window.open("userInfo.html","_self");
-			}else{
-				mui.alert(data.desc);
-			}
-		}
-	})
-}
 
 //手机号是否在经代核心存在
 function brokerTel (tel) {
 	$.ajax({
 		type : 'post',
-		url : URL1 + 'query_broker_mobile_jsons.tml',
+		url : URL1 + 'core/broker/findBrokerByBrokerMobile',
 		data : tel,
 		dataType : 'json',
+		contentType: 'application/json',
 		cache : false,
 		error : function(data) {
 			console.log(data);
@@ -101,12 +80,13 @@ function brokerTel (tel) {
 			console.log(data);
 			var dataCode = data.code;
 			if (dataCode == "SYS_S_000") {
-				var mobileInfo = {
-					"groupCode":"",
+				var myDate = new Date().getTime();
+				var mobileInfo = {		
+					"groupCode":"QTB",
 					"sceneCode":"registerSms",
-					"exSeq":"",
-					"exSystem":"",
-					"sendWhen":"",
+					"exSeq":myDate,
+					"exSystem":"QTBNet",
+					"sendWhen":"I",
 					"mobile":$("#userTel").val(),
 					"param":{
 					}
@@ -167,7 +147,7 @@ function selectToUserInfo () {
 				if ($("#userCode").val()) {
 					var telCodeInfo = {
 						"mobile":$("#userTel").val(),
-						"exSystem":"",
+						"exSystem":"QTBNet",
 						"code":$("#userCode").val()
 					}
 					var telCode = JSON.stringify(telCodeInfo);
@@ -188,6 +168,30 @@ function selectToUserInfo () {
 }
 
 
+//手机验证码是否正确
+function isAuthCode (telCode) {
+	$.ajax({
+		type : 'post',
+		url : URL1 + 'sms/validatesmscode',
+		data : telCode,
+		dataType : 'json',
+		contentType: 'application/json',
+		cache : false,
+		error : function(data) {
+			console.log(data);
+		},
+		success : function(data) {
+			console.log(data);
+			var dataCode = data.code;
+			if (dataCode == "SYS_S_000") {
+				window.localStorage.setItem("brokerMobile",$("#userTel").val());
+				window.open("userInfo.html","_self");
+			}else{
+				mui.alert(data.desc);
+			}
+		}
+	})
+}
 
 
 

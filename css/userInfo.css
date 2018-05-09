@@ -28,6 +28,8 @@
 .openCloseBox { position: relative; background: #FFFFFF; padding: 0 0.3rem;}
 .mui-input-row .mui-switch { float: none;  margin-top:-15px; margin-right: 0;}
 .openCloseBtn { position:absolute; top:50%; right:0.2rem;}
+#nationList { float: right; width: 2.3rem; line-height: 0.88rem; font-size: 0.34rem; color: #222222; text-align: right;}
+#nationList option { float: right; text-align: right;}
 
 .addressInfo { word-break: break-all; word-break: break-word; line-height: 0.66rem; color: #666666;}
 .adrNowBox { display: none;}
